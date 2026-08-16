@@ -1,1 +1,3 @@
-quality_inspection/
+quality_inspection/*
+!quality_inspection/web/
+.ipynb

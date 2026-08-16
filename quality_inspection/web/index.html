@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>품질검사 모니터링</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">Quality Inspection Monitor</p>
+          <h1>품질검사 모니터링</h1>
+        </div>
+        <p class="header-note">
+          품질 담당자가 하루 품질 상태와 우선 점검 대상을 확인하는 화면
+        </p>
+      </header>
+
+      <section class="kpi-grid" aria-label="핵심 지표">
+        <article class="kpi-card">
+          <span class="kpi-label">전체 검사 수</span>
+          <strong id="total-inspections">-</strong>
+        </article>
+        <article class="kpi-card warning">
+          <span class="kpi-label">큰 결함 비율</span>
+          <strong id="large-fault-rate">-</strong>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">주의 결함 유형</span>
+          <strong id="warning-fault">-</strong>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">모델 macro_f1</span>
+          <strong id="macro-f1">-</strong>
+        </article>
+      </section>
+
+      <section class="analysis-grid" aria-label="분석 영역">
+        <article class="panel">
+          <h2>결함 유형별 분포</h2>
+          <div id="fault-bars" class="bar-list"></div>
+        </article>
+        <article class="panel">
+          <h2>큰 결함 유형별 비율</h2>
+          <div id="large-fault-bars" class="bar-list"></div>
+        </article>
+        <article class="panel table-panel">
+          <h2>모델 성능 비교</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>모델</th>
+                <th>Accuracy</th>
+                <th>Macro F1</th>
+                <th>학습 시간</th>
+              </tr>
+            </thead>
+            <tbody id="model-table"></tbody>
+          </table>
+        </article>
+      </section>
+
+      <section class="decision-panel" aria-label="판단 영역">
+        <article>
+          <h2>Other_Faults 경고</h2>
+          <p id="other-warning"></p>
+        </article>
+        <article>
+          <h2>오늘의 주요 해석</h2>
+          <p id="daily-insight"></p>
+        </article>
+        <article>
+          <h2>추천 조치</h2>
+          <ul id="actions"></ul>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
